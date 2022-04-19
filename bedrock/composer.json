@@ -1,0 +1,95 @@
+{
+  "name": "roots/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
+  "homepage": "https://roots.io/bedrock/",
+  "authors": [
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    }
+  ],
+  "keywords": [
+    "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "https://discourse.roots.io/category/bedrock"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:GooUlla/ACF-Pro.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:GooUlla/AIO-Unltd.git"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "composer/installers": "^2.1",
+    "vlucas/phpdotenv": "^5.4",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/bedrock-disallow-indexing": "^2.0",
+    "roots/wordpress": "5.9.3",
+    "roots/wp-config": "1.0.0",
+    "roots/wp-password-bcrypt": "1.1.0",
+    "gooulla/acf-pro": "dev-master",
+    "gooulla/aio-unltd": "dev-master",
+    "wpackagist-plugin/contact-form-7": "^5.5",
+    "wpackagist-plugin/font-awesome": "^4.1",
+    "wpackagist-plugin/ml-slider": "^3.27",
+    "wpackagist-plugin/custom-post-type-ui": "^1.10",
+    "wpackagist-plugin/all-in-one-wp-migration": "^7.56",
+    "wpackagist-plugin/acf-field-for-contact-form-7": "^1.6",
+    "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.0",
+    "wpackagist-plugin/acf-nav-menu-field": "^1.0",
+    "wpackagist-plugin/post-duplicator": "^2.28",
+    "wpackagist-plugin/woocommerce": "^6.3",
+    "wpackagist-plugin/wordpress-seo": "^18.5"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.6.2",
+    "roave/security-advisories": "dev-latest"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+name: replacethis
+recipe: wordpress
+env_file:
+  - .env
+proxy:
+  theme:
+    - localhost:3000
+config:
+  php: 7.4
+  composer_version: 2-latest
+  via: nginx
+  webroot: web
+  database: mysql
+  xdebug: true
+
+services:
+  theme:
+    type: node 
+    overrides:
+      ports:
+        - 3000:3000
+
+# TODO Work on build steps w/ Lando and tooling here...
+tooling:
+  npm:
+    service: theme
+  build:
+    description: Builds bedrock
+    service: appserver
+    cmd: composer install
+    dir: /app
+  
+  build-theme:
+    description: Builds theme
+    service: theme
+    cmd: npm install && npm run dev
+    dir: /app/fulltheme
+
+  watch:
+    description: Launches browsersync and css injection
+    service: theme
+    cmd: npm run watch
+    dir: /app/fulltheme
+  
+  database-do:
+    description: Changes domain from "sitename.lndo.site" to "sitename.upbrandsdesigns.com"
+    service: appserver
+    cmd: wp search-replace '.lndo.site' '.upbrandsdesigns.com'
+    dir: /app
+
+  database-undo:
+    description: Changes domain from "sitename.upbrandsdesigns.com" to "sitename.lndo.site"
+    service: appserver
+    cmd: wp search-replace '.upbrandsdesigns.com' '.lndo.site'
+    dir: /app
+
+excludes:
+  - vendor
+  - node_modules
