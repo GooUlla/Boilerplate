@@ -198,7 +198,7 @@ require get_template_directory() . '/inc/customizer.php';
  * ACF Blocks
  */
 
-add_action('block_categories', 'upbds_category', 10, 2);
+add_action('block_categories_all', 'upbds_category', 10, 2);
 function upbds_category($categories)
 {
 	return array_merge(
