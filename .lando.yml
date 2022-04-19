@@ -9,7 +9,7 @@ config:
   php: 7.4
   composer_version: 2-latest
   via: nginx
-  webroot: web
+  webroot: public_html
   database: mysql
   xdebug: true
 
