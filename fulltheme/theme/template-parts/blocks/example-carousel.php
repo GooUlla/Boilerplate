@@ -27,23 +27,19 @@ if (!empty($block['align'])) {
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-  <div class="swiper">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      ...
+  <?php if (have_rows('galeria')) : ?>
+    <div class="slides">
+      <?php while (have_rows('galeria')) : the_row(); ?>
+      <?php $pags[] = get_sub_field('titulo'); ?>
+        <div class="slide">
+          <img class="" src="<?php the_sub_field('imagen'); ?>" />
+        </div>
+      <?php endwhile; ?>
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
-  </div>
+    <div class="pagination">
+      <?php foreach ($textos as $texto) : ?>
+        <span class=""><?php echo $texto; ?></span>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
 </div>

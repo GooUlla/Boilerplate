@@ -243,8 +243,10 @@ function upbrands_blocks()
 			'keywords'          => array('carousel', 'upbrands'),
 			'align'							=> 'full',
 			'enqueue_assets' 		=> function () {
+				wp_enqueue_style('tiny-css', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css', array(), '2.9.2');
 				wp_enqueue_style('example-carousel', get_template_directory_uri() . '/template-parts/blocks/example-carousel.css', array(), '1.0.0');
-				wp_enqueue_script('example-carousel', get_template_directory_uri() . '/template-parts/blocks/example-carousel.js', array(), '1.0.0', true);
+				wp_enqueue_script('tiny-js', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js', array(), '2.9.2', true);
+				wp_enqueue_script('example-carousel', get_template_directory_uri() . '/template-parts/blocks/example-carousel.js', array('jquery'), '1.0.0', true);
 			},
 		));
 

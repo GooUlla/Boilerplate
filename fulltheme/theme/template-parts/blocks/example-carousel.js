@@ -1,6 +1,3 @@
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
-
 (function ($) {
 	/**
 	 * initializeBlock
@@ -16,28 +13,21 @@ import 'swiper/css/bundle';
 	 */
 	var initializeBlock = function ($block) {
 		var block = '.' + $block.attr('class').split(' ').join('.');
-    var wrapper = block + ' .swiper';
-    const swiper = new Swiper(wrapper, {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-    
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
+    var slides = block + ' .slides';
+		var controls = block + ' .pagination'
+    const slider = tns({
+			container: slides,
+			items: 1,
+			mode: 'gallery',
+			speed: '600',
+			navContainer: controls,
+			navAsThumbnails: true,
+			autoplay: true,
+			autoplayTimeout: 3000,
+			autoplayButtonOutput: false,
+			controls: false
+		});
+	};
 	};
 
 	// Initialize each block on page load (front end).
