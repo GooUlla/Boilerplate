@@ -22,5 +22,5 @@ if( !empty($block['align']) ) {
 
 ?>
 <div id="footer" class="<?php echo esc_attr($className); ?>">
-  <!-- Content -->
+  
 </div>

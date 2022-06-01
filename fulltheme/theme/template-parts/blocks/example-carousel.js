@@ -12,22 +12,21 @@
 	 * @return  void
 	 */
 	var initializeBlock = function ($block) {
-		var block = '.' + $block.attr('class').split(' ').join('.');
-    var slides = block + ' .slides';
-		var controls = block + ' .pagination'
-    const slider = tns({
-			container: slides,
-			items: 1,
-			mode: 'gallery',
-			speed: '600',
-			navContainer: controls,
-			navAsThumbnails: true,
-			autoplay: true,
-			autoplayTimeout: 3000,
-			autoplayButtonOutput: false,
-			controls: false
-		});
-	};
+		var child = $block.find(".slides").attr("class");
+		if (child != null) {
+    	const slider = tns({
+				container: slides,
+				items: 1,
+				mode: 'gallery',
+				speed: '600',
+				navContainer: controls,
+				navAsThumbnails: true,
+				autoplay: true,
+				autoplayTimeout: 3000,
+				autoplayButtonOutput: false,
+				controls: false
+			});
+		};
 	};
 
 	// Initialize each block on page load (front end).

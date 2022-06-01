@@ -165,7 +165,7 @@ add_action( 'widgets_init', 'upbds_widgets_init' );
  * Enqueue scripts and styles.
  */
 function upbds_scripts() {
-	wp_enqueue_style( 'replacethis-style', get_stylesheet_uri(), array(), UPBDS_VERSION );
+	wp_enqueue_style( 'replacethis-style', get_stylesheet_uri(), array(), filemtime(get_stylesheet_uri()) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

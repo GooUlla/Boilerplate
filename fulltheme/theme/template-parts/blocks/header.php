@@ -22,5 +22,9 @@ if( !empty($block['align']) ) {
 
 ?>
 <div id="masthead" class="<?php echo esc_attr($className); ?>">
-  <!-- Content -->
+  <?php the_custom_logo(); ?>
+  <div id="main-menu" class="">
+    <?php the_field('menu'); ?>
+  </div>
+  <div id="hamburger" class="flex relative z-[99999999] items-center justify-center w-8 h-8 cursor-pointer md:hidden"><span></span><span></span><span></span></div>
 </div>

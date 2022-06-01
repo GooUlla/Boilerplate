@@ -14,6 +14,13 @@ module.exports = {
 		'editor-post-title__input',
 	],
 	theme: {
+		screens: {
+      'sm': '450px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1440px',
+    },
 		// Extend the default theme.
 		extend: {
 
@@ -28,7 +35,24 @@ module.exports = {
 
 		// Uncomment below to add additionals first-party Tailwind plugins.
 		// require( '@tailwindcss/aspect-ratio' ),
-		// require( '@tailwindcss/forms' ),
-		// require( '@tailwindcss/line-clamp' ),
+		require( '@tailwindcss/forms' ),
+		require( '@tailwindcss/line-clamp' ),
+		plugin(function ({addUtilities}) {
+			addUtilities({
+        '.top-center': {
+          top: '50%',
+					transform: 'translateY(-50%)',
+        },
+        '.left-center': {
+          left: '50%',
+					transform: 'translateX(-50%)',
+        },
+				'.center': {
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%,-50%)',
+				}
+      })
+		}),
 	],
 };
