@@ -62,8 +62,8 @@
     "wpackagist-plugin/woocommerce": "^6.3",
     "wpackagist-plugin/wordpress-seo": "^18.5",
     "wpackagist-plugin/easy-wp-smtp": "^1.4",
-    "wpackagist-plugin/svg-support": "^2.4",
-    "wpackagist-plugin/page-scroll-to-id": "^1.7"
+    "wpackagist-plugin/page-scroll-to-id": "^1.7",
+    "wpackagist-plugin/svg-support": "^2.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.2",
