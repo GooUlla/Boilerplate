@@ -165,7 +165,8 @@ add_action( 'widgets_init', 'upbds_widgets_init' );
  * Enqueue scripts and styles.
  */
 function upbds_scripts() {
-	wp_enqueue_style( 'replacethis-style', get_stylesheet_uri(), array(), filemtime(get_stylesheet_uri()) );
+	wp_enqueue_style( 'replacethis-style', get_stylesheet_directory_uri() . '/style.css', array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -229,7 +230,10 @@ function upbrands_blocks()
 			'icon'              => 'arrow-up-alt',
 			'keywords'          => array('header', 'upbrands'),
 			'align'							=> 'full',
-			'mode'						  => 'edit'
+			'mode'						  => 'edit',
+			'enqueue_assets'	  => function () {
+				wp_enqueue_script('header', get_template_directory_uri() . '/template-parts/blocks/header.js', array('jquery'), '1.0.0', true);
+			},
 		));
 
 		// Register carousel block.

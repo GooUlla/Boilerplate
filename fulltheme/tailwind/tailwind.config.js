@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
 	presets: [
 		// Manage Tailwind Typography's configuration in a separate file.

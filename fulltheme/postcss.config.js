@@ -13,7 +13,7 @@ module.exports = {
 		require( 'postcss-import' ),
 		require( 'postcss-simple-vars' )( { variables: selectors } ),
 		require( 'postcss-nested-ancestors' ),
-		require( 'postcss-nested' ),
+		require( 'tailwindcss/nesting' ),
 		require( 'tailwindcss' ),
 	],
 };
