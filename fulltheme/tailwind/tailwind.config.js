@@ -54,6 +54,16 @@ module.exports = {
 					left: '50%',
 					transform: 'translate(-50%,-50%)',
 				}
+      }),
+			addComponents({
+        '.overlay': {
+					content: '""',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+					width: '100%',
+					height: '100%'
+        },
       })
 		}),
 	],
