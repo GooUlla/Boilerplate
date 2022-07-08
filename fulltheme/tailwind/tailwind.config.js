@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const includePreflight = ( 'editor' === process.env._TW_TARGET ) ? false : true;
 
 module.exports = {
 	presets: [
@@ -17,7 +18,8 @@ module.exports = {
 	],
 	theme: {
 		screens: {
-      'sm': '450px',
+      'xs': '450px',
+			'sm': '600',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',
@@ -25,8 +27,18 @@ module.exports = {
     },
 		// Extend the default theme.
 		extend: {
-
+			fontFamily: {
+        'awesome': ['"Font Awesome 6 Free"'],
+				'awesome-brands': ['"Font Awesome 6 Brands"']
+      },
+			spacing: {
+        'content': '74rem',
+      }
 		},
+	},
+	corePlugins: {
+		// Disable Preflight base styles in CSS targeting the editor.
+		preflight: includePreflight,
 	},
 	plugins: [
 		// Add Tailwind Typography.

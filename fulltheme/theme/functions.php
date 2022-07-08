@@ -166,6 +166,7 @@ add_action( 'widgets_init', 'upbds_widgets_init' );
  */
 function upbds_scripts() {
 	wp_enqueue_style( 'replacethis-style', get_stylesheet_directory_uri() . '/style.css', array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
+	wp_enqueue_script( '_tw-script', get_template_directory_uri() . '/js/script.min.js', array(), UPBDS_VERSION, true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -173,11 +174,6 @@ function upbds_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'upbds_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -188,12 +184,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
 
 /**
  * ACF Blocks
