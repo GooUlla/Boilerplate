@@ -25,6 +25,9 @@ module.exports = {
       'xl': '1280px',
       '2xl': '1440px',
     },
+		transitionDuration: {
+      DEFAULT: '300ms'
+    },
 		// Extend the default theme.
 		extend: {
 			fontFamily: {
