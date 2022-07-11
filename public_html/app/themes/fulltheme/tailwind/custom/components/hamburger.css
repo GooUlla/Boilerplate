@@ -1,0 +1,35 @@
+#hamburger {
+	@apply relative rotate-0 transition-all duration-500;
+
+	&.open {
+		@apply z-[9999999999];
+	}
+
+	& span {
+		@apply block absolute h-[2px] w-4 bg-black left-[calc(50%_-_7px)] rotate-0 opacity-100 transition-all duration-300;
+
+		&:nth-child(1) {
+			@apply top-[calc(50%_-_6px)] origin-[left_center];
+
+			.open& {
+				@apply rotate-45 top-[calc(50%_-_7px)] left-[calc(50%_-_5px)];
+			}
+		}
+
+		&:nth-child(2) {
+			@apply top-[calc(50%_-_1px)] origin-[left_center];
+
+			.open& {
+				@apply w-0 opacity-0;
+			}
+		}
+
+		&:nth-child(3) {
+			@apply top-[calc(50%_+_4px)] origin-[left_center];
+
+			.open& {
+				@apply -rotate-45 top-[calc(50%_+_4px)] left-[calc(50%_-_5px)];
+			}
+		}
+	}
+}

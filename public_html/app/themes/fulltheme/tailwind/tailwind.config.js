@@ -26,14 +26,12 @@ module.exports = {
       'xl': '1280px',
       '2xl': '1440px',
     },
-		transitionDuration: {
-      DEFAULT: '300ms'
-    },
 		// Extend the default theme.
 		extend: {
 			fontFamily: {
         'awesome': ['"Font Awesome 6 Free"'],
-				'awesome-brands': ['"Font Awesome 6 Brands"']
+				'awesome-brands': ['"Font Awesome 6 Brands"'],
+				'sans': ['"Open Sans"', 'sans-serif']
       },
 			spacing: {
         'content': '74rem',
