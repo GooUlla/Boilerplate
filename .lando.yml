@@ -34,13 +34,13 @@ tooling:
     description: Builds theme
     service: theme
     cmd: npm install && npm run dev
-    dir: /app/fulltheme
+    dir: /app/public_html/app/themes/fulltheme
 
   watch:
     description: Launches browsersync and css injection
     service: theme
     cmd: npm run watch
-    dir: /app/fulltheme
+    dir: /app/public_html/app/themes/fulltheme
   
   database-do:
     description: Changes domain from "sitename.lndo.site" to "sitename.upbrandsdesigns.com"

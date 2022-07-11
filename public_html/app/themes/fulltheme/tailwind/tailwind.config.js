@@ -37,6 +37,9 @@ module.exports = {
       },
 			spacing: {
         'content': '74rem',
+      },
+			content: {
+        'empty': '[""]',
       }
 		},
 	},
@@ -55,7 +58,7 @@ module.exports = {
 		// require( '@tailwindcss/aspect-ratio' ),
 		require( '@tailwindcss/forms' ),
 		require( '@tailwindcss/line-clamp' ),
-		plugin(function ({addUtilities}) {
+		plugin(function ({addUtilities, addComponents}) {
 			addUtilities({
         '.top-center': {
           top: '50%',
